@@ -1,0 +1,138 @@
+/* ── Global Reset & Base ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #0f0f13;
+  --bg-card: #1a1a24;
+  --bg-hover: #232333;
+  --accent: #e85d26;
+  --accent-light: rgba(232, 93, 38, 0.15);
+  --text-primary: #f0f0f0;
+  --text-secondary: #8888a8;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --radius: 12px;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* ── App Layout ── */
+.app-container {
+  width: 100%;
+  max-width: 680px;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ── Header ── */
+.app-header {
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.app-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* ── Search Wrapper (the whole autocomplete widget) ── */
+.search-wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+/* ── Dropdown Container ── */
+.dropdown-container {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: fadeSlideDown 0.18s ease;
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Empty / Error State ── */
+.dropdown-message {
+  padding: 16px 20px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.dropdown-message.error {
+  color: #ff6b6b;
+}
+
+/* ── Highlight matching text ── */
+.highlight {
+  background: transparent;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Footer (Hooks Badge) ── */
+.hooks-used {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.hooks-used strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.hooks-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.hooks-list span {
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
