@@ -88,12 +88,12 @@ This module isolates the network request away from the React component lifecycle
 ```mermaid
 sequenceDiagram
     actor User
-    participant DOM as <SearchInput />
-    participant App as <App />
-    participant Hook as useSearch()
+    participant DOM as SearchInput
+    participant App as App
+    participant Hook as "useSearch()"
     participant API as searchApi.js
     participant Remote as Open Library API
-    participant Results as <SearchResults />
+    participant Results as SearchResults
 
     User->>DOM: Types "Harry"
     DOM->>App: onChange("Harry")
